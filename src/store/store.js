@@ -15,3 +15,6 @@ export {
     changePriority,
     createTask
 }
+
+export * from "./thunks/fetchTasks";
+export * from "./thunks/createTasks";

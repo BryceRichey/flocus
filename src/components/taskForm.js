@@ -29,13 +29,13 @@ function TaskForm() {
             <h1>Create Task</h1>
             <br />
             <form onSubmit={handleSubmit}>
-                <label for="taskName">Task Name</label>
-                <input type="text" id="taskName" value={name} onChange={handleNameChange}></input>
+                <label>Task Name</label>
+                <input type="text" value={name} onChange={handleNameChange}></input>
 
                 <br />
 
-                <label for="taskPriority">Priority</label>
-                <select id="taskPriority" value={priority} onChange={handlePriorityChange}>
+                <label>Priority</label>
+                <select value={priority} onChange={handlePriorityChange}>
                     <option hidden value={0}>Select Priority</option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>

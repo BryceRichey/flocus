@@ -1,18 +1,23 @@
-import CreateTask from "./views/createTask";
 import {
   createBrowserRouter as Router,
   RouterProvider
 } from "react-router-dom";
 import AppLayout from "./routes/appLayout";
 import ErrorPage from "./routes/error-page";
+import CreateTask from "./views/createTask";
+import ShowTask from "./views/showTask";
 
 const router = Router([
   {
-    path: "tasks/",
+    path: "tasks",
     element: <AppLayout />,
     children: [
       {
-        path: "create/",
+        path: "show",
+        element: <ShowTask />,
+      },
+      {
+        path: "create",
         element: <CreateTask />,
       }
     ]
