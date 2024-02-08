@@ -26,7 +26,7 @@
     "start": "react-scripts start",
     "server": "json-server -p 3001 --watch db.json",
     "build": "react-scripts build",
-    "build-css": "npx tailwindcss -i ./src/style/input.css -o ./src/style/output.css --watch",
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
