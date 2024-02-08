@@ -1,26 +1,26 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { fetchTasks } from "../store/store";
-import { useThunk } from "../hooks/useThunk";
+import { useFetchTasksQuery } from "../store/store";
+import TaskListItem from "./taskListItem";
 
 function TaskList() {
-    const [runFetchTasks] = useThunk(fetchTasks);
+    const {
+        data: tasks,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useFetchTasksQuery();
 
-    const { tasks } = useSelector((state) => {
-        return state.tasks;
-    })
+    let content;
 
-    useEffect(() => {
-        runFetchTasks();
-    }, [runFetchTasks]);
-
-    let content = tasks.map((task) => {
-        return (
-            <div key={task.id}>
-                <p>{task.name} | Priority {task.priority}</p>
-            </div>
-        )
-    })
+    if (isLoading) {
+        content = <div>Loading</div>
+    } else if (isError) {
+        content = <div>{error.toString()}</div>
+    } else if (isSuccess) {
+        content = tasks.map(task => {
+            return <TaskListItem key={task.id} task={task} />
+        });
+    }
 
     return (
         <div>

@@ -1,27 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
-import { changeName, changePriority, createTask } from "../store/store.js";
+import { useCreateTaskMutation } from "../store/store.js";
+import { useState } from "react";
 
 function TaskForm() {
-    const dispatch = useDispatch();
-    const { name, priority } = useSelector((state) => {
-        return {
-            name: state.form.name,
-            priority: state.form.priority
-        }
-    });
+    const [name, setName] = useState('');
+    const [priority, setPriority] = useState(0);
+    const [createTask] = useCreateTaskMutation();
 
     const handleNameChange = (e) => {
-        dispatch(changeName(e.target.value));
+        setName(e.target.value);
     }
 
     const handlePriorityChange = (e) => {
-        dispatch(changePriority(e.target.value));
+        setPriority(e.target.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        dispatch(createTask({ name, priority }));
+        await createTask({ name, priority });
+
+        setName('');
+        setPriority(0);
     }
 
     return (
