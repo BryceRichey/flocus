@@ -1,7 +1,7 @@
 import { useCreateTaskMutation } from "../store/store";
 import { useState } from "react";
 
-function TaskForm() {
+export default function TaskForm() {
     const [name, setName] = useState('');
     const [priority, setPriority] = useState(0);
     const [createTask] = useCreateTaskMutation();
@@ -24,7 +24,7 @@ function TaskForm() {
     }
 
     return (
-        <div>
+        <>
             <h1>Create Task</h1>
             <br />
             <form onSubmit={handleSubmit}>
@@ -45,8 +45,6 @@ function TaskForm() {
 
                 <button>Submit</button>
             </form>
-        </div>
+        </>
     );
 }
-
-export default TaskForm;

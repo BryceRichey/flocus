@@ -6,7 +6,7 @@ import AppLayout from "./routes/appLayout";
 import ErrorPage from "./routes/error-page";
 import CreateTask from "./views/CreateTask";
 import ShowTask from "./views/ShowTask";
-import { EditTask } from "./views/EditTask";
+import EditTask from "./views/EditTask";
 
 const router = Router([
   {
@@ -34,12 +34,8 @@ const router = Router([
   },
 ]);
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div >
+    <RouterProvider router={router} />
   );
 }
-
-export default App;

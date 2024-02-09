@@ -2,7 +2,7 @@ import { useFetchTaskQuery } from "../store/store"
 import { useParams } from "react-router-dom";
 import TaskEditItem from "./TaskEditItem";
 
-function TaskEdit() {
+export default function TaskEdit() {
     let { taskId } = useParams();
 
     const {
@@ -24,11 +24,9 @@ function TaskEdit() {
     }
 
     return (
-        <div>
+        <>
             <div>Task Edit Form</div>
             {content}
-        </div>
-    )
+        </>
+    );
 }
-
-export default TaskEdit;

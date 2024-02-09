@@ -1,11 +1,7 @@
 import TaskList from "../components/TaskList";
 
-function ShowTask() {
+export default function ShowTask() {
     return (
-        <div>
-            <TaskList />
-        </div>
+        <TaskList />
     );
 }
-
-export default ShowTask;

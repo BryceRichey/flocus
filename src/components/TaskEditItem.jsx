@@ -2,7 +2,7 @@ import { useUpdateTaskMutation } from "../store/store";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function TaskEditItem({ task }) {
+export default function TaskEditItem({ task }) {
     let { taskId } = useParams();
 
     const [name, setName] = useState(task.name);
@@ -24,7 +24,7 @@ function TaskEditItem({ task }) {
     }
 
     return (
-        <div>
+        <>
             <h1>Edit Task</h1>
             <br />
             <form onSubmit={handleSubmit}>
@@ -45,8 +45,6 @@ function TaskEditItem({ task }) {
 
                 <button>Submit</button>
             </form>
-        </div>
+        </>
     );
 }
-
-export default TaskEditItem;

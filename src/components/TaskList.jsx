@@ -1,7 +1,7 @@
 import { useFetchTasksQuery } from "../store/store";
 import TaskListItem from "./TaskListItem";
 
-function TaskList() {
+export default function TaskList() {
     const {
         data: tasks,
         isLoading,
@@ -23,13 +23,11 @@ function TaskList() {
     }
 
     return (
-        <div>
+        <>
             <h1>Tasks</h1>
             <div className="flex space-x-4">
                 {content}
             </div>
-        </div>
-    )
+        </>
+    );
 }
-
-export default TaskList;

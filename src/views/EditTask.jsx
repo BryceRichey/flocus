@@ -1,6 +1,6 @@
 import TaskEdit from "../components/TaskEdit"
 
-export function EditTask() {
+export default function EditTask() {
     return (
         <TaskEdit />
     );
