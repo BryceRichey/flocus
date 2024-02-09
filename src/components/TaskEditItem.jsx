@@ -1,10 +1,13 @@
-import { useCreateTaskMutation } from "../store/store.js";
+import { useUpdateTaskMutation } from "../store/store";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-function TaskForm() {
-    const [name, setName] = useState('');
-    const [priority, setPriority] = useState(0);
-    const [createTask] = useCreateTaskMutation();
+function TaskEditItem({ task }) {
+    let { taskId } = useParams();
+
+    const [name, setName] = useState(task.name);
+    const [priority, setPriority] = useState(task.priority);
+    const [updateTask] = useUpdateTaskMutation();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -17,25 +20,22 @@ function TaskForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await createTask({ name, priority });
-
-        setName('');
-        setPriority(0);
+        await updateTask({ id: taskId, name, priority });
     }
 
     return (
         <div>
-            <h1>Create Task</h1>
+            <h1>Edit Task</h1>
             <br />
             <form onSubmit={handleSubmit}>
                 <label>Task Name</label>
-                <input type="text" value={name} onChange={handleNameChange}></input>
+                <input type="text" value={name} placeholder={task.name} onChange={handleNameChange}></input>
 
                 <br />
 
                 <label>Priority</label>
                 <select value={priority} onChange={handlePriorityChange}>
-                    <option hidden value={0}>Select Priority</option>
+                    <option hidden value={name.priority}>{name.priority}</option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -49,4 +49,4 @@ function TaskForm() {
     );
 }
 
-export default TaskForm;
+export default TaskEditItem;

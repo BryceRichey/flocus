@@ -4,8 +4,9 @@ import {
 } from "react-router-dom";
 import AppLayout from "./routes/appLayout";
 import ErrorPage from "./routes/error-page";
-import CreateTask from "./views/createTask";
-import ShowTask from "./views/showTask";
+import CreateTask from "./views/CreateTask";
+import ShowTask from "./views/ShowTask";
+import { EditTask } from "./views/EditTask";
 
 const router = Router([
   {
@@ -19,6 +20,10 @@ const router = Router([
       {
         path: "create",
         element: <CreateTask />,
+      },
+      {
+        path: ":taskId/edit",
+        element: <EditTask />
       }
     ]
   },

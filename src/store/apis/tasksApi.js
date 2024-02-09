@@ -16,7 +16,7 @@ const tasksApi = createApi({
                         body: {
                             id: nanoid(),
                             name: task.name,
-                            priority: task.name,
+                            priority: task.priority,
                         },
                     };
                 },
@@ -26,6 +26,29 @@ const tasksApi = createApi({
                 query: () => '/tasks',
                 providesTags: ['Tasks'],
             }),
+            updateTask: builder.mutation({
+                query: (task) => {
+                    return {
+                        url: `/tasks/${task.id}`,
+                        method: "PATCH",
+                        body: {
+                            name: task.name,
+                            priority: task.priority,
+                        },
+                    };
+                },
+            }),
+            fetchTask: builder.query({
+                query: (taskId) => `/tasks/${taskId}`
+            }),
+            deleteTask: builder.mutation({
+                query: (taskId) => {
+                    return {
+                        url: `/tasks/${taskId}`,
+                        method: "DELETE",
+                    };
+                },
+            }),
         };
     },
 });
@@ -33,6 +56,9 @@ const tasksApi = createApi({
 export const {
     useCreateTaskMutation,
     useFetchTasksQuery,
+    useUpdateTaskMutation,
+    useFetchTaskQuery,
+    useDeleteTaskMutation,
 } = tasksApi;
 
 export { tasksApi };

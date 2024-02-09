@@ -1,5 +1,5 @@
 import { useFetchTasksQuery } from "../store/store";
-import TaskListItem from "./taskListItem";
+import TaskListItem from "./TaskListItem";
 
 function TaskList() {
     const {
@@ -25,7 +25,9 @@ function TaskList() {
     return (
         <div>
             <h1>Tasks</h1>
-            {content}
+            <div className="flex space-x-4">
+                {content}
+            </div>
         </div>
     )
 }

@@ -27,5 +27,8 @@ export * from "./thunks/createTasks";
 
 export {
     useCreateTaskMutation,
-    useFetchTasksQuery
+    useFetchTasksQuery,
+    useUpdateTaskMutation,
+    useFetchTaskQuery,
+    useDeleteTaskMutation,
 } from './apis/tasksApi';
