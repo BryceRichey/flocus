@@ -2,11 +2,11 @@ import {
   createBrowserRouter as Router,
   RouterProvider
 } from "react-router-dom";
-import AppLayout from "./routes/appLayout";
-import ErrorPage from "./routes/error-page";
-import CreateTask from "./views/CreateTask";
-import ShowTask from "./views/ShowTask";
-import EditTask from "./views/EditTask";
+import AppLayout from "./routes/AppLayout.jsx";
+import ErrorPage from "./routes/ErrorPage.jsx";
+import CreateTask from "./views/CreateTask.jsx";
+import ShowTask from "./views/ShowTask.jsx";
+import EditTask from "./views/EditTask.jsx";
 
 const router = Router([
   {

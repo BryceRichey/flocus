@@ -1,5 +1,5 @@
-import { useFetchTasksQuery } from "../store/store";
-import TaskListItem from "./TaskListItem";
+import { useFetchTasksQuery } from "../store/store.js";
+import TaskListItem from "./TaskListItem.jsx";
 
 export default function TaskList() {
     const {
@@ -24,7 +24,6 @@ export default function TaskList() {
 
     return (
         <>
-            <h1>Tasks</h1>
             <div className="flex space-x-4">
                 {content}
             </div>

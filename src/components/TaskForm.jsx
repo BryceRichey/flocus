@@ -1,5 +1,5 @@
-import { useCreateTaskMutation } from "../store/store";
 import { useState } from "react";
+import { useCreateTaskMutation } from "../store/store.js";
 
 export default function TaskForm() {
     const [name, setName] = useState('');
@@ -25,24 +25,19 @@ export default function TaskForm() {
 
     return (
         <>
-            <h1>Create Task</h1>
-            <br />
             <form onSubmit={handleSubmit}>
-                <label>Task Name</label>
-                <input type="text" value={name} onChange={handleNameChange}></input>
-
-                <br />
-
-                <label>Priority</label>
-                <select value={priority} onChange={handlePriorityChange}>
-                    <option hidden value={0}>Select Priority</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                </select>
-
-                <br />
-
+                <div>
+                    <input type="text" value={name} onChange={handleNameChange} placeholder="Task Name"></input>
+                </div>
+                <div>
+                    <label>Priority </label>
+                    <select value={priority} onChange={handlePriorityChange}>
+                        <option hidden value={0}>Select</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                    </select>
+                </div>
                 <button>Submit</button>
             </form>
         </>

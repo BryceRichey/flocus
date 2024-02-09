@@ -1,7 +1,7 @@
-import { Fragment } from "react";
 import { useRouteError } from "react-router-dom";
+import { Fragment } from "react";
 
-function ErrorPage() {
+export default function ErrorPage() {
     const error = useRouteError();
     console.error(error);
 
@@ -15,5 +15,3 @@ function ErrorPage() {
         </Fragment>
     );
 }
-
-export default ErrorPage;

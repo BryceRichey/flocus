@@ -1,6 +1,6 @@
-import { useUpdateTaskMutation } from "../store/store";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useUpdateTaskMutation } from "../store/store.js";
 
 export default function TaskEditItem({ task }) {
     let { taskId } = useParams();
@@ -25,24 +25,19 @@ export default function TaskEditItem({ task }) {
 
     return (
         <>
-            <h1>Edit Task</h1>
-            <br />
             <form onSubmit={handleSubmit}>
-                <label>Task Name</label>
-                <input type="text" value={name} placeholder={task.name} onChange={handleNameChange}></input>
-
-                <br />
-
-                <label>Priority</label>
-                <select value={priority} onChange={handlePriorityChange}>
-                    <option hidden value={name.priority}>{name.priority}</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                </select>
-
-                <br />
-
+                <div>
+                    <input type="text" value={name} placeholder={task.name} onChange={handleNameChange}></input>
+                </div>
+                <div>
+                    <label>Priority </label>
+                    <select value={priority} onChange={handlePriorityChange}>
+                        <option hidden value={name.priority}>{name.priority}</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                    </select>
+                </div>
                 <button>Submit</button>
             </form>
         </>

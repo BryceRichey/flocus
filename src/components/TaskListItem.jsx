@@ -1,4 +1,4 @@
-import { useDeleteTaskMutation } from "../store/store";
+import { useDeleteTaskMutation } from "../store/store.js";
 import { Link } from "react-router-dom";
 
 export default function TaskListItem({ task }) {
