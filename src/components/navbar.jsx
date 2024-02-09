@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-function NavBar() {
+export default function NavBar() {
     return (
-        <div>
+        <>
             <h1 className="text-xl">Flocus</h1>
             <div>
                 <nav>
@@ -19,8 +19,6 @@ function NavBar() {
                     </ul>
                 </nav>
             </div>
-        </div>
-    )
+        </>
+    );
 }
-
-export default NavBar;

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { createTask } from "./taskSlice";
 
 const formSlice = createSlice({
     name: 'form',
@@ -15,13 +14,6 @@ const formSlice = createSlice({
             state.priority = action.payload;
         }
     },
-    // extraReducers(builder) {
-    //     builder
-    //         .addCase(createTask, (state, _action) => {
-    //             state.name = '';
-    //             state.priority = 0;
-    //         });
-    // }
 });
 
 export const { changeName, changePriority } = formSlice.actions;

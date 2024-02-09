@@ -37,6 +37,7 @@ const tasksApi = createApi({
                         },
                     };
                 },
+                invalidatesTags: ['Tasks'],
             }),
             fetchTask: builder.query({
                 query: (taskId) => `/tasks/${taskId}`
@@ -48,6 +49,7 @@ const tasksApi = createApi({
                         method: "DELETE",
                     };
                 },
+                invalidatesTags: ['Tasks'],
             }),
         };
     },

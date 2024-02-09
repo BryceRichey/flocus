@@ -1,15 +1,12 @@
 import { useDeleteTaskMutation } from "../store/store";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function TaskListItem({ task }) {
-    let { taskId } = useParams();
 
     const [deleteTask] = useDeleteTaskMutation();
 
-    const handleDeleteClick = async (e) => {
-        e.preventDefault();
-
-        await deleteTask({ taskId });
+    const handleDeleteClick = async () => {
+        await deleteTask(task.id);
     }
 
     return (
