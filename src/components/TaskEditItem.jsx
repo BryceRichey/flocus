@@ -6,11 +6,21 @@ export default function TaskEditItem({ task }) {
     let { taskId } = useParams();
 
     const [name, setName] = useState(task.name);
+    const [tags, setTags] = useState(task.tags);
+    const [description, setDescription] = useState(task.description);
     const [priority, setPriority] = useState(task.priority);
     const [updateTask] = useUpdateTaskMutation();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
+    }
+
+    const handleTagChange = (e) => {
+        setTags(e.target.value);
+    }
+
+    const handleDescriptionChange = (e) => {
+        setDescription(e.target.value);
     }
 
     const handlePriorityChange = (e) => {
@@ -20,7 +30,13 @@ export default function TaskEditItem({ task }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await updateTask({ id: taskId, name, priority });
+        await updateTask({
+            id: taskId,
+            name,
+            tags,
+            description,
+            priority
+        });
     }
 
     return (
@@ -28,6 +44,12 @@ export default function TaskEditItem({ task }) {
             <form onSubmit={handleSubmit}>
                 <div>
                     <input type="text" value={name} placeholder={task.name} onChange={handleNameChange}></input>
+                </div>
+                <div>
+                    <input type="text" value={tags} onChange={handleTagChange} placeholder="Task Tags"></input>
+                </div>
+                <div>
+                    <input type="text" value={description} placeholder={task.description} onChange={handleDescriptionChange}></input>
                 </div>
                 <div>
                     <label>Priority </label>

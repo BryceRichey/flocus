@@ -16,6 +16,8 @@ const tasksApi = createApi({
                         body: {
                             id: nanoid(),
                             name: task.name,
+                            tags: task.tags,
+                            description: task.description,
                             priority: task.priority,
                         },
                     };
@@ -33,6 +35,8 @@ const tasksApi = createApi({
                         method: "PATCH",
                         body: {
                             name: task.name,
+                            tags: task.tags,
+                            description: task.description,
                             priority: task.priority,
                         },
                     };
