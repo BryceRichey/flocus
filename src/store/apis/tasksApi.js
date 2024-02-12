@@ -18,6 +18,8 @@ const tasksApi = createApi({
                             name: task.name,
                             tags: task.tags,
                             description: task.description,
+                            date: task.date,
+                            time: task.time,
                             priority: task.priority,
                         },
                     };
@@ -37,6 +39,8 @@ const tasksApi = createApi({
                             name: task.name,
                             tags: task.tags,
                             description: task.description,
+                            date: task.date,
+                            time: task.time,
                             priority: task.priority,
                         },
                     };
