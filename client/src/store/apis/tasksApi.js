@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { nanoid } from "@reduxjs/toolkit";
+// import { nanoid } from "@reduxjs/toolkit";
+// id: nanoid(),
 
 const tasksApi = createApi({
     reducerPath: 'tasks',
@@ -14,7 +15,6 @@ const tasksApi = createApi({
                         url: '/tasks',
                         method: 'POST',
                         body: {
-                            id: nanoid(),
                             name: task.name,
                             tags: task.tags,
                             description: task.description,

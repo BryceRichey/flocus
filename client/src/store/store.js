@@ -15,10 +15,12 @@ export {
     store,
 }
 
+export * from './thunks/tasksThunk.js';
+
 export {
     useCreateTaskMutation,
     useFetchTasksQuery,
     useUpdateTaskMutation,
     useFetchTaskQuery,
     useDeleteTaskMutation,
-} from './apis/tasksApi';
+} from './apis/tasksApi.js';

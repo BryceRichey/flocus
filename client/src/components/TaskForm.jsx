@@ -49,6 +49,8 @@ export default function TaskForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        console.log(createTask({name}));
+
         await createTask({
             name,
             tags,
@@ -68,7 +70,7 @@ export default function TaskForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form action="/tasks" onSubmit={handleSubmit}>
                 <div>
                     <input type="text" value={name} onChange={handleNameChange} placeholder="Task Name" />
                 </div>
