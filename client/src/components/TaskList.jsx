@@ -1,40 +1,32 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useFetchTasksQuery } from "../store/store.js";
 import { fetchTasks } from "../store/store.js";
-import { useThunk } from "../hooks/useThunk.js";
 import TaskListItem from "./TaskListItem.jsx";
 
 export default function TaskList() {
-    const [doFetchTasks] = useThunk(fetchTasks);
+    const dispatch = useDispatch();
+    const { data, isLoading, error } = useSelector(state => state.tasks);
 
     useEffect(() => {
-        doFetchTasks();
-    }, [doFetchTasks]);
+        dispatch(fetchTasks());
+    }, [dispatch]);
 
-    // const {
-    //     data: tasks,
-    //     isLoading,
-    //     isSuccess,
-    //     isError,
-    //     error
-    // } = useFetchTasksQuery();
+    let content;
 
-    // let content;
-
-    // if (isLoading) {
-    //     content = <div>Loading</div>
-    // } else if (isError) {
-    //     content = <div>{error.toString()}</div>
-    // } else if (isSuccess) {
-    //     content = tasks.map(task => {
-    //         return <TaskListItem key={task.id} task={task} />
-    //     });
-    // }
+    if (isLoading) {
+        content = <div>Loading</div>
+    } else if (error) {
+        content = <div>{error.toString()}</div>
+    } else if (data) {
+        content = data.map(task => {
+            return <TaskListItem key={task.task_id} task={task} />
+        });
+    }
 
     return (
         <>
             <div className="flex space-x-4">
-                {/* {content} */}
+                {content}
             </div>
         </>
     );

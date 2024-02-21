@@ -1,12 +1,12 @@
-import { useDeleteTaskMutation } from "../store/store.js";
 import { Link } from "react-router-dom";
+import { deleteTask } from "../store/store";
+import { useThunk } from "../hooks/useThunk";
 
 export default function TaskListItem({ task }) {
+    const [doDeleteTask] = useThunk(deleteTask);
 
-    const [deleteTask] = useDeleteTaskMutation();
-
-    const handleDeleteClick = async () => {
-        await deleteTask(task.id);
+    const handleDeleteClick = async (taskId) => {
+        await doDeleteTask(taskId);
     }
 
     return (
@@ -15,15 +15,15 @@ export default function TaskListItem({ task }) {
                 <h3 className="text-lg font-medium">{task.name}</h3>
                 <p>{task.tags}</p>
                 <p>{task.description}</p>
-                <p>{task.date}</p>
-                <p>{task.time}</p>
+                <p>{task.due_date}</p>
+                <p>{task.due_time}</p>
                 <div className="flex">
                     <h5>Priority</h5>
                     <h5 className="ml-3">{task.priority}</h5>
                 </div>
                 <div className="mt-4 space-x-6">
-                    <Link to={`/tasks/${task.id}/edit`}>Edit</Link>
-                    <button onClick={() => handleDeleteClick(task.id)}>Delete</button>
+                    <Link to={`/tasks/${task.task_id}/edit`}>Edit</Link>
+                    <button onClick={() => handleDeleteClick(task.task_id)}>Delete</button>
                 </div>
             </div>
         </>

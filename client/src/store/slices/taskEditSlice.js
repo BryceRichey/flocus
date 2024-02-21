@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks } from "../thunks/tasks/fetchTasks.js";
+import { fetchTask } from "../store.js";
 
-const taskSlice = createSlice({
-    name: 'tasks',
+const taskEditSlice = createSlice({
+    name: 'taskEdit',
     initialState: {
         data: [],
         isLoading: false,
@@ -10,18 +10,18 @@ const taskSlice = createSlice({
     },
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(fetchTasks.pending, (state, _action) => {
+        builder.addCase(fetchTask.pending, (state, _action) => {
             state.isLoading = true;
         });
-        builder.addCase(fetchTasks.fulfilled, (state, action) => {
+        builder.addCase(fetchTask.fulfilled, (state, action) => {
             state.isLoading = false;
             state.data = action.payload;
         });
-        builder.addCase(fetchTasks.rejected, (state, action) => {
+        builder.addCase(fetchTask.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.error;
         });
     }
 });
 
-export const taskReducer = taskSlice.reducer;
+export const taskEditReducer = taskEditSlice.reducer;

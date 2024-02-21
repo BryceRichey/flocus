@@ -1,29 +1,19 @@
-import {
-    useState,
-    // useReducer 
-} from "react";
-import { useCreateTaskMutation } from "../store/store.js";
-// import formReducer from "../reducers/formReducer.js";
+import { useState } from "react";
+import { createTask } from "../store/store.js";
+import { useThunk } from "../hooks/useThunk.js";
 
 export default function TaskForm() {
-    // const [state, dispatch] = useReducer(formReducer, {
-    //     text: '',
-    // })
+    const [doCreateTasks] = useThunk(createTask);
+
     const [name, setName] = useState('');
     const [tags, setTags] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState(null);
     const [time, setTime] = useState(null);
     const [priority, setPriority] = useState(0);
-    const [createTask] = useCreateTaskMutation();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
-
-        // dispatch({
-        //     type: 'name',
-        //     payload: e.target.value,
-        // });
     }
 
     const handleTagChange = (e) => {
@@ -49,9 +39,7 @@ export default function TaskForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(createTask({name}));
-
-        await createTask({
+        doCreateTasks({
             name,
             tags,
             description,

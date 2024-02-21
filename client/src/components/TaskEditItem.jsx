@@ -1,76 +1,76 @@
-import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { useUpdateTaskMutation } from "../store/store.js";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { updateTask } from "../store/store.js";
+import { useThunk } from "../hooks/useThunk.js";
 
 export default function TaskEditItem({ task }) {
-    let { taskId } = useParams();
+    const navigate = useNavigate();
+    const { taskId } = useParams();
+    const [doUpdateTask] = useThunk(updateTask);
+    const [formData, setFormData] = useState({
+        name: "",
+        tags: "",
+        description: "",
+        date: null,
+        time: null,
+        priority: 0,
+    });
 
-    const [name, setName] = useState(task.name);
-    const [tags, setTags] = useState(task.tags);
-    const [description, setDescription] = useState(task.description);
-    const [date, setDate] = useState(task.date);
-    const [time, setTime] = useState(task.time);
-    const [priority, setPriority] = useState(task.priority);
-    const [updateTask] = useUpdateTaskMutation();
+    useEffect(() => {
+        if (task) {
+            setFormData({
+                name: task.name || "",
+                tags: task.tags || "",
+                description: task.description || "",
+                date: task.due_date || null,
+                time: task.due_time || null,
+                priority: task.priority || 0,
+            });
+        }
+    }, [task]);
 
-    const handleNameChange = (e) => {
-        setName(e.target.value);
-    }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
 
-    const handleTagChange = (e) => {
-        setTags(e.target.value);
-    }
-
-    const handleDescriptionChange = (e) => {
-        setDescription(e.target.value);
-    }
-
-    const handlePriorityChange = (e) => {
-        setPriority(e.target.value);
-    }
-
-    const handleDateChange = (e) => {
-        setDate(e.target.value);
-    }
-
-    const handleTimeChange = (e) => {
-        setTime(e.target.value);
+        setFormData(state => ({
+            ...state,
+            [name]: value
+        }));
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await updateTask({
-            id: taskId,
-            name,
-            tags,
-            description,
-            priority
+        await doUpdateTask({
+            taskId,
+            ...formData,
         });
-    }
+
+        navigate("/tasks/show");
+    };
 
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <input type="text" value={name} placeholder={task.name} onChange={handleNameChange} />
+                    <input type="text" name="name" value={formData.name} placeholder={task.name} onChange={handleChange} />
                 </div>
                 <div>
-                    <input type="text" value={tags} onChange={handleTagChange} placeholder="Task Tags" />
+                    <input type="text" name="tags" value={formData.tags} placeholder={task.tags} onChange={handleChange} />
                 </div>
                 <div>
-                    <input type="text" value={description} placeholder={task.description} onChange={handleDescriptionChange} />
+                    <input type="text" name="description" value={formData.description} placeholder={task.description} onChange={handleChange} />
                 </div>
                 <div>
-                    <input type="date" value={date} placeholder={task.date} onChange={handleDateChange} />
+                    <input type="date" name="due_date" value={formData.date} onChange={handleChange} />
                 </div>
                 <div>
-                    <input type="time" value={time} placeholder={task.time} onChange={handleTimeChange} />
+                    <input type="time" name="due_time" value={formData.time} onChange={handleChange} />
                 </div>
                 <div>
                     <label>Priority </label>
-                    <select value={priority} onChange={handlePriorityChange}>
-                        <option hidden value={name.priority}>{name.priority}</option>
+                    <select name="priority" value={formData.priority} onChange={handleChange}>
+                        <option hidden value={task.priority}>{task.priority}</option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>

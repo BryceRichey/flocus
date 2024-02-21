@@ -5,7 +5,7 @@ async function getTasks() {
     SELECT
         *
     FROM
-        tasks`
+        task_data`
 
     const client = await pool.connect();
     const result = await client.query(getQuery);
@@ -15,6 +15,26 @@ async function getTasks() {
     return data;
 }
 
+async function getTask(taskId) {
+    const getQuery = `
+    SELECT 
+        *
+    FROM
+        task_data
+    WHERE
+        task_id = $1`
+
+    const client = await pool.connect();
+    const result = await client.query(getQuery, [taskId]);
+    const data = result.rows;
+    client.release();
+
+    console.log(data);
+
+    return data;
+}
+
 module.exports = {
     getTasks,
+    getTask,
 }
