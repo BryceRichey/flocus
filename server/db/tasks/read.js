@@ -29,8 +29,6 @@ async function getTask(taskId) {
     const data = result.rows;
     client.release();
 
-    console.log(data);
-
     return data;
 }
 

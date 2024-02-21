@@ -28,9 +28,9 @@ router.post('/tasks/:taskId/edit', async (req, res, next) => {
 
 router.get('/tasks', async (_req, res, _next) => {
     try {
-        await taskReadQueries.getTasks();
+        const response = await taskReadQueries.getTasks();
 
-        res.status(200);
+        res.status(200).send(response);
     } catch (err) {
         console.log(err);
 
@@ -40,9 +40,9 @@ router.get('/tasks', async (_req, res, _next) => {
 
 router.get('/tasks/:taskId', async (req, res, _next) => {
     try {
-        await taskReadQueries.getTask(req.params.taskId);
+        const response = await taskReadQueries.getTask(req.params.taskId);
 
-        res.status(200);
+        res.status(200).send(response);
     } catch (err) {
         console.log(err);
 
