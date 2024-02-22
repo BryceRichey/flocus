@@ -21,7 +21,7 @@
     },
     "scripts": {
         "start": "node index.js",
-        "dev": "nodemon --watch .env -e js,mjs,json, --exec \"npm start\""
+        "dev": "nodemon --watch 'server/**' --ignore '.env, **/node_modules/**' -e js,mjs,json --exec \"npm start\""
     },
     "description": "Your Express server application",
     "main": "app.js",
