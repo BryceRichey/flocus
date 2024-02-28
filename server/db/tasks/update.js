@@ -10,7 +10,7 @@ async function updateTask({ name, tags, description, date, time, priority, taskI
         due_time = $5,
         priority = $6
     WHERE
-        task_id = $7`
+        id = $7`
 
     const client = await pool.connect();
     await client.query(updateQuery, [

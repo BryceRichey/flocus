@@ -48,7 +48,7 @@ router.get('/tasks/:taskId', async (req, res, _next) => {
 
         res.status(500);
     }
-})
+});
 
 router.get('/tasks/:taskId/delete', async (req, res, _next) => {
     try {

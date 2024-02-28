@@ -22,7 +22,7 @@ async function getTask(taskId) {
     FROM
         task_data
     WHERE
-        task_id = $1`
+        id = $1`
 
     const client = await pool.connect();
     const result = await client.query(getQuery, [taskId]);

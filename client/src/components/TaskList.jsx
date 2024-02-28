@@ -19,7 +19,7 @@ export default function TaskList() {
         content = <div>{error.toString()}</div>
     } else if (data) {
         content = data.map(task => {
-            return <TaskListItem key={task.task_id} task={task} />
+            return <TaskListItem key={task.id} task={task} />
         });
     }
 
