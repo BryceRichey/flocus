@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { store } from './store/store.js';
 import App from './App.jsx';
+import { ThemeProvider } from './context/Theme.jsx';
+import { SidebarPanelProvider } from './context/SidebarToggle.jsx';
 
 const el = document.getElementById('root');
 const root = createRoot(el);
@@ -19,7 +21,11 @@ root.render(
                 redirect_uri: window.location.origin
             }}
         >
-            <App />
+            <ThemeProvider>
+                <SidebarPanelProvider>
+                    <App />
+                </SidebarPanelProvider>
+            </ThemeProvider>
         </Auth0Provider>
     </Provider>
 );

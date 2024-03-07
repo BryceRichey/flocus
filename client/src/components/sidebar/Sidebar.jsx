@@ -1,25 +1,28 @@
-import SidebarProfile from "./SidebarProfile";
-import SidebarSeach from "./SidebarSearch";
-import SidebarLink from "./SidebarLink";
-import { Link } from "react-router-dom";
+import SidebarProfile from "./Profile";
+import SidebarLink from "./Links";
+import ThemeToggle from "./ThemeToggle";
+import SidebarPanelToggle from "./SidebarPanelToggle";
 
-import { AddIconOutline, AddIconSolid } from "../../icons/AddIcons";
+export default function OpenedSidebar() {
+    const renderedThemeToggle = ThemeToggle();
+    const renderedSidebarPanelToggle = SidebarPanelToggle();
 
-export default function Sidebar() {
     return (
-        <nav className="h-dvh w-64 p-4 bg-stone-900">
-            <SidebarProfile />
-            <SidebarSeach />
-            <div className="group relative">
-                <Link to={'/tasks/create'} className="flex gap-4 w-full px-4 py-2 mb-4 text-white transition duration-300 hover:bg-stone-800 rounded-xl">
-                    <AddIconOutline />
-                    <AddIconSolid />
-                    Add Task
-                </Link>
+        <nav className={`flex flex-col justify-between min-h-full ${renderedSidebarPanelToggle.isSidebarPanelClosed ? 'w-64' : 'w-fit'} m-4 p-4 lm-bg-100 dark:dm-bg-800 rounded-xl transition duration-300`}>
+            <div>
+                <SidebarProfile />
+                <ul>
+                    <SidebarLink />
+                </ul>
             </div>
-            <ul>
-                <SidebarLink />
-            </ul>
+            <div>
+                <div className="flex flex-col group relative">
+                    {renderedThemeToggle}
+                </div>
+                <div className="flex flex-col group relative">
+                    {renderedSidebarPanelToggle}
+                </div>
+            </div>
         </nav>
     );
 }

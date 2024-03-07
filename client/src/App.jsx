@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import {
   createBrowserRouter as Router,
   RouterProvider
@@ -8,6 +10,8 @@ import CreateTask from "./views/CreateTask.jsx";
 import ShowTask from "./views/ShowTask.jsx";
 import EditTask from "./views/EditTask.jsx";
 import ProfileAccount from "./views/ProfileAccount.jsx";
+
+import ThemeProvider from "./context/Theme.jsx"
 
 const router = Router([
   {
@@ -46,7 +50,11 @@ const router = Router([
 ]);
 
 export default function App() {
+  const theme = useContext(ThemeProvider);
+
   return (
-    <RouterProvider router={router} />
+    <div className={`${theme.isDarkMode ? 'dark' : ''} flex min-h-screen lm-bg-000 dark:dm-bg-900 transition duration-300`}>
+      <RouterProvider router={router} />
+    </div>
   );
 }
