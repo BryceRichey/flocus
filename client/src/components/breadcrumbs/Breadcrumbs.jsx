@@ -11,12 +11,12 @@ export default function Breadcrumbs() {
         },
         {
             path: '/tasks/show',
-            crumbs: 'Dashboard',
+            crumbs: ['Dashboard'],
             label: 'Dashboard',
         },
         {
             path: '/tasks/create',
-            crumbs: 'Tasks',
+            crumbs: ['Tasks', 'Create'],
             labels: 'Create Task'
         },
     ];

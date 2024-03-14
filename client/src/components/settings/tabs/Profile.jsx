@@ -38,7 +38,7 @@ export default function Profile() {
           <h2 className="text-xl font-medium">
             Profile
           </h2>
-          <p className="text-sm lm-tx-700 mb-8">Update how you interact with Flocus</p>
+          <p className="text-sm lm-tx-700 mb-8 dark:dm-tx-300 transition duration-300">Update how you interact with Flocus</p>
           <div className="flex gap-2 mb-4 ">
             <p>Picture</p>
           </div>

@@ -8,9 +8,8 @@ import AppLayout from "./routes/AppLayout.jsx";
 import SettingsLayout from "./routes/SettingsLayout.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import CreateTask from "./views/CreateTask.jsx";
-import ShowTask from "./views/ShowTask.jsx";
+import UpcomingTasks from "./views/UpcomingTasks.jsx";
 import EditTask from "./views/EditTask.jsx";
-import Settings from "./views/Settings.jsx";
 import Details from "./components/settings/tabs/Details.jsx";
 import Password from "./components/settings/tabs/Password.jsx";
 import Boards from "./components/settings/tabs/Boards.jsx";
@@ -24,8 +23,8 @@ const router = Router([
     element: <AppLayout />,
     children: [
       {
-        path: "show",
-        element: <ShowTask />,
+        path: "upcoming",
+        element: <UpcomingTasks />,
       },
       {
         path: "create",
