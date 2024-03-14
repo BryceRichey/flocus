@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
-// const path = require('path');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const tasks = require('./routes/tasks.js');
+const settings = require('./routes/settings.js');
 
 const app = express();
 
@@ -15,11 +16,12 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(tasks);
+app.use(settings);
 
 const port = process.env.PORT || 3001;
 app.listen(port);

@@ -25,6 +25,8 @@ export * from './thunks/tasks/postTask.js';
 export * from './thunks/tasks/updateTask.js'
 export * from './thunks/tasks/deleteTask.js';
 
+export * from './thunks/settings/profileSettings.js';
+
 export {
     // useCreateTaskMutation,
     // useFetchTasksQuery,

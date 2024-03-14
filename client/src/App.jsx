@@ -5,11 +5,16 @@ import {
   RouterProvider
 } from "react-router-dom";
 import AppLayout from "./routes/AppLayout.jsx";
+import SettingsLayout from "./routes/SettingsLayout.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import CreateTask from "./views/CreateTask.jsx";
 import ShowTask from "./views/ShowTask.jsx";
 import EditTask from "./views/EditTask.jsx";
-import ProfileAccount from "./views/ProfileAccount.jsx";
+import Settings from "./views/Settings.jsx";
+import Details from "./components/settings/tabs/Details.jsx";
+import Password from "./components/settings/tabs/Password.jsx";
+import Boards from "./components/settings/tabs/Boards.jsx";
+import Profile from "./components/settings/tabs/Profile.jsx";
 
 import ThemeProvider from "./context/Theme.jsx"
 
@@ -33,12 +38,24 @@ const router = Router([
     ]
   },
   {
-    path: "accounts",
-    element: <AppLayout />,
+    path: "settings",
+    element: <SettingsLayout />,
     children: [
       {
-        path: "profile",
-        element: <ProfileAccount />,
+        path: "details",
+        element: <Details />,
+      },
+      {
+        path: "Profile",
+        element: <Profile />,
+      },
+      {
+        path: "Password",
+        element: <Password />,
+      },
+      {
+        path: "Boards",
+        element: <Boards />,
       },
     ]
   },

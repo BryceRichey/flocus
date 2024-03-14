@@ -3,6 +3,7 @@ export * from "./AddIcons";
 export * from "./ArrowInCircleLeftIcons";
 export * from "./ArrowInCircleRightIcons";
 export * from "./CalendarIcons";
+export * from "./ChevronIcons";
 export * from "./FilterIcons";
 export * from "./LogoutIcon";
 export * from "./MoonIcons";

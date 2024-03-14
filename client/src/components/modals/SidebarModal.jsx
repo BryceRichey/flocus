@@ -14,7 +14,7 @@ export default function SidebarModal({ isOpen, onClose }) {
 
     return (
         <>
-            <div className="fixed left-64 w-screen h-svh top-0 bg-black/10 backdrop-blur-sm z-10" onClick={onClose}>
+            <div className="fixed left-64 ml-8 w-screen h-svh top-0 bg-black/10 backdrop-blur-sm z-10" onClick={onClose}>
                 {/* Backdrop */}
             </div>
             <div className="absolute left-64 mt-32 ml-4 px-4 py-4 bg-stone-900 text-white rounded-xl border-2 border-stone-400/50 z-20">

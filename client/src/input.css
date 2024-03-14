@@ -51,6 +51,10 @@
         background-color: #575757;
     }
 
+    .dm-br-300 {
+        border-color: #929292;
+    }
+
 
     /* Dark Mode Text Colors */
     .dm-tx-400 {
@@ -95,6 +99,10 @@
         background-color: #979797;
     }
 
+    .lm-br-800 {
+        border-color: #444;
+    }
+
 
     /* Light Mode Text Colors */
     .lm-tx-600 {
@@ -113,5 +121,17 @@
     .lm-tx-900,
     .lm-ic-900 {
         color: #1F1F21;
+    }
+
+
+    /* Dark Mode Text Colors */
+    .dm-pm-200 {
+        background-color: #1A68C4;
+    }
+
+
+    /* Light Mode Text Colors */
+    .lm-pm-100 {
+        background-color: #005E93;
     }
 }

@@ -36,7 +36,7 @@ export default function SidebarProfile() {
         if (!sidebarPanel.isSidebarPanelClosed) {
             accountLinks = (
                 <>
-                    <div className="flex justify-center pb-4">
+                    <div className="flex pb-4 pl-1">
                         <img src={user.picture} alt={user.name} className="w-12 rounded-full" />
                     </div>
                 </>
@@ -45,7 +45,7 @@ export default function SidebarProfile() {
             accountLinks =
                 <>
                     <div className="static flex gap-x-4 justify-center pb-4 pl-1">
-                        <img src={user.picture} alt={user.name} className="w-12 rounded-full" />
+                        <img src={user.picture} alt={user.name} className="w-12 max-h-12 rounded-full" />
                         <div>
                             <p className="body1 lm-tx-900 dark:dm-tx-100 transition duration-300">{user.given_name || "Test User"}</p>
                             <p className="bodySub2 lm-tx-600 dark:dm-tx-200 transition duration-300">3 Tasks Due Today</p>
