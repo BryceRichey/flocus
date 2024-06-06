@@ -15,7 +15,7 @@ import {
     FilterIconSolid
 } from '../../icons/index';
 
-function SidebarLink({
+export default function SidebarLink({
     children,
     active,
     inactive,
@@ -96,5 +96,3 @@ function SidebarLink({
         </div>
     );
 }
-
-export default SidebarLink;

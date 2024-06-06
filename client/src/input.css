@@ -44,11 +44,11 @@
 
     /* Dark Mode Border Colors */
     .dm-br-900 {
-        background-color: #242424;
+        border-color: #242424;
     }
 
     .dm-br-600 {
-        background-color: #575757;
+        border-color: #575757;
     }
 
     .dm-br-300 {
@@ -92,11 +92,11 @@
 
     /* Light Mode Border Colors */
     .lm-br-000 {
-        background-color: #ECECEC;
+        border-color: #ECECEC;
     }
 
     .lm-br-300 {
-        background-color: #979797;
+        border-color: #979797;
     }
 
     .lm-br-800 {

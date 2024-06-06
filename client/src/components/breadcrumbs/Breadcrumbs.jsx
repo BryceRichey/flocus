@@ -7,17 +7,18 @@ export default function Breadcrumbs() {
         {
             path: '/settings/profile',
             crumbs: ['Settings', 'Profile'],
-            label: 'Profile',
         },
         {
-            path: '/tasks/show',
-            crumbs: ['Dashboard'],
-            label: 'Dashboard',
+            path: '/tasks/today',
+            crumbs: ['Tasks', 'Today'],
+        },
+        {
+            path: '/tasks/upcoming',
+            crumbs: ['Tasks', 'Upcoming'],
         },
         {
             path: '/tasks/create',
             crumbs: ['Tasks', 'Create'],
-            labels: 'Create Task'
         },
     ];
 

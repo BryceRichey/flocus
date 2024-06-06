@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchTasks } from "../store/store.js";
-import TaskListItem from "./TaskListItem.jsx";
+import { fetchTasks } from "../../../store/store.js";
+import UpcomingTaskListItem from "./UpcomingTaskListItem.jsx";
 
-export default function TaskList() {
+export default function UpcomingTaskList() {
     const dispatch = useDispatch();
     const { data, isLoading, error } = useSelector(state => state.tasks);
+
+    console.log(data)
 
     useEffect(() => {
         dispatch(fetchTasks());
@@ -19,7 +21,7 @@ export default function TaskList() {
         content = <div>{error.toString()}</div>
     } else if (data) {
         content = data.map(task => {
-            return <TaskListItem key={task.id} task={task} />
+            return <UpcomingTaskListItem key={task.id} task={task} />
         });
     }
 
