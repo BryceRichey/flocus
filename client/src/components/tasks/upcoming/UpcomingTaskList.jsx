@@ -27,7 +27,7 @@ export default function UpcomingTaskList() {
 
     return (
         <>
-            <div className="flex space-x-4">
+            <div className="flex flex-col space-x-4">
                 {content}
             </div>
         </>

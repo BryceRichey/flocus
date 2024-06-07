@@ -10,6 +10,7 @@ export default function UpcomingTaskListItem({ task }) {
     }
 
     let endDate;
+    let noEndDate
     if (task.end_date) {
         const taskEndDate = task.end_date.split('T')[0];
         const [year, month, date] = taskEndDate.split('-');
@@ -26,6 +27,14 @@ export default function UpcomingTaskListItem({ task }) {
                 </div>
             </>
         );
+    } else {
+        noEndDate = ( 
+            <>
+                <div className="flex flex-col gap-1 border-r w-24 pr-4 justify-center">
+                    <p className="text-sm text-center">NO DUE DATE</p>
+                </div>
+            </>
+        )
     }
 
     let taskEndTime;
@@ -37,9 +46,9 @@ export default function UpcomingTaskListItem({ task }) {
 
     return (
         <>
-            <div className="max-w-80 my-4 mr-4 rounded-xl lm-bg-200 dark:dm-bg-700 lm-tx-900 dark:dm-tx-100 transition duration-300">
+            <div className="mx-4 my-2 rounded-xl lm-bg-200 dark:dm-bg-700 lm-tx-900 dark:dm-tx-100 transition duration-300">
                 <div className="px-6 py-4 flex gap-4">
-                    {endDate}
+                    {endDate ? endDate : noEndDate}
                     <div className="flex flex-col">
                         <h2 className="text-xl font-medium">Title: {task.name}</h2>
                         <p className="text-sm">Description: {task.description}</p>
