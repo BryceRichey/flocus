@@ -47,7 +47,7 @@ export default function UpcomingTaskListItem({ task }) {
 
     return (
         <>
-            <div className="mx-4 my-2 rounded-xl lm-bg-200 dark:dm-bg-700 lm-tx-900 dark:dm-tx-100 transition duration-300">
+            <div key={task.id} className="mx-4 my-2 rounded-xl lm-bg-200 dark:dm-bg-700 lm-tx-900 dark:dm-tx-100 transition duration-300">
                 <div className="px-6 py-4 flex gap-8">
                     {endDate ? endDate : noEndDate}
                     <div className="flex flex-col">
