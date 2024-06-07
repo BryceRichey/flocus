@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { deleteTask } from "../../../store/store";
 import { useThunk } from "../../../hooks/useThunk";
+import { ButtonPrimary, ButtonSecondary } from "../../../assets/Buttons";
 
 export default function UpcomingTaskListItem({ task }) {
     const [doDeleteTask] = useThunk(deleteTask);
@@ -47,19 +48,19 @@ export default function UpcomingTaskListItem({ task }) {
     return (
         <>
             <div className="mx-4 my-2 rounded-xl lm-bg-200 dark:dm-bg-700 lm-tx-900 dark:dm-tx-100 transition duration-300">
-                <div className="px-6 py-4 flex gap-4">
+                <div className="px-6 py-4 flex gap-8">
                     {endDate ? endDate : noEndDate}
                     <div className="flex flex-col">
-                        <h2 className="text-xl font-medium">Title: {task.name}</h2>
-                        <p className="text-sm">Description: {task.description}</p>
-                        <p className="text-sm pt-4">Tags: {task.tags}</p>
+                        <h2 className="text-xl font-medium">{task.name}</h2>
+                        <p className="text-sm">{task.description}</p>
+                        <p className="text-sm pt-4">{task.tags}</p>
                         {/* <p className="text-sm">{task.priority}</p> */}
-                        {/* <div >
+                        <div >
                             <ButtonSecondary onClick={() => handleDeleteClick(task.id)} label={'Delete'} />
-                            <ButtonPrimary label={'Edit'}>
-                                <Link to={`/tasks/${task.id}/edit`} />
-                            </ButtonPrimary>
-                        </div> */}
+                                <Link to={`/tasks/${task.id}/edit`}>
+                                    <ButtonPrimary label={'Edit'} />
+                                </Link>
+                        </div>
                     </div>
                 </div>
             </div>
