@@ -12,7 +12,9 @@ import {
     RectangleStackIconOutline,
     RectangleStackIconSolid,
     FilterIconOutline,
-    FilterIconSolid
+    FilterIconSolid,
+    AddIconOutline,
+    AddIconSolid,
 } from '../../icons/index';
 
 export default function SidebarLink({
@@ -36,6 +38,12 @@ export default function SidebarLink({
             path: '/tasks/show',
             icon: <SquaresIconOutline />,
             iconSolid: <SquaresIconSolid />,
+        },
+        {
+            label: 'Create Task',
+            path: '/tasks/create',
+            icon: <AddIconOutline />,
+            iconSolid: <AddIconSolid />,
         },
         {
             label: 'Today',
