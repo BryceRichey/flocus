@@ -35,7 +35,7 @@ export default function SidebarLink({
     const links = [
         {
             label: 'Dashboard',
-            path: '/tasks/show',
+            path: '/tasks/dashboard',
             icon: <SquaresIconOutline />,
             iconSolid: <SquaresIconSolid />,
         },
