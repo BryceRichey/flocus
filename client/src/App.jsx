@@ -9,7 +9,9 @@ import SettingsLayout from "./routes/SettingsLayout.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import CreateTask from "./views/CreateTask.jsx";
 import Dashboard from "./views/Dashboard.jsx";
+import Today from "./views/Today.jsx";
 import UpcomingTasks from "./views/UpcomingTasks.jsx";
+import Filter from "./views/Filters.jsx";
 import EditTask from "./views/EditTask.jsx";
 import Details from "./components/settings/tabs/Details.jsx";
 import Password from "./components/settings/tabs/Password.jsx";
@@ -28,8 +30,16 @@ const router = Router([
         element: <Dashboard />,
       },
       {
+        path: "today",
+        element: <Today />,
+      },
+      {
         path: "upcoming",
         element: <UpcomingTasks />,
+      },
+      {
+        path: "filter",
+        element: <Filter />,
       },
       {
         path: "create",
