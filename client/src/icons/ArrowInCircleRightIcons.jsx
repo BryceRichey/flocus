@@ -6,7 +6,7 @@ function ArrowInCircleRightIconOutline() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 transition duration-300 ease-in-out opacity-100 group-hover:opacity-0">
+            className="w-6 h-6 ">
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
