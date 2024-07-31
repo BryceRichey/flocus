@@ -6,7 +6,7 @@ export default function InputText({ inputLabel, inputOptLabel, name, maxLength, 
 
     const handleChange = (e) => {
         setInputValue(e.target.value);
-        onChange(e.target.value);
+        onChange(e.target);
         setMaxLengthCounter(e.target.value.length);
     }
 

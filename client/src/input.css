@@ -27,6 +27,11 @@
         @apply text-xs font-medium
     }
 
+    /* New Colors Transitioning To */
+    .bg-offwhite {
+        background-color: #FAF9F6;
+    }
+
 
     /* Dark Mode Background Colors */
     .dm-bg-900 {
