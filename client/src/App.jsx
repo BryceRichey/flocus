@@ -3,16 +3,10 @@ import {
   RouterProvider
 } from "react-router-dom";
 import AppLayout from "./routes/AppLayout.jsx";
-import SettingsLayout from "./routes/SettingsLayout.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import CreateTask from "./views/CreateTask.jsx";
 import ShowTask from "./views/ShowTask.jsx";
 import EditTask from "./views/EditTask.jsx";
-import Settings from "./views/Settings.jsx";
-import Details from "./components/settings/tabs/Details.jsx";
-import Password from "./components/settings/tabs/Password.jsx";
-import Boards from "./components/settings/tabs/Boards.jsx";
-import Profile from "./components/settings/tabs/Profile.jsx";
 
 const router = Router([
   {
@@ -31,28 +25,6 @@ const router = Router([
         path: ":taskId/edit",
         element: <EditTask />
       }
-    ]
-  },
-  {
-    path: "settings",
-    element: <SettingsLayout />,
-    children: [
-      {
-        path: "details",
-        element: <Details />,
-      },
-      {
-        path: "Profile",
-        element: <Profile />,
-      },
-      {
-        path: "Password",
-        element: <Password />,
-      },
-      {
-        path: "Boards",
-        element: <Boards />,
-      },
     ]
   },
   {
