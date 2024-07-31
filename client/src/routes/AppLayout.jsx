@@ -1,5 +1,6 @@
 import Sidebar from "../components/sidebar/Sidebar";
-import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
+import Navbar from "../components/navbar/Navbar";
+// import Breadcrumbs from "../components/breadcrumbs/Breadcrumbs";
 import { Outlet } from "react-router-dom";
 
 export default function AppLayout() {
@@ -7,7 +8,8 @@ export default function AppLayout() {
         <>
             <Sidebar />
             <div className="flex flex-col flex-1 mr-4">
-                <Breadcrumbs />
+                <Navbar />
+                {/* <Breadcrumbs /> */}
                 <Outlet />
             </div>
         </>
