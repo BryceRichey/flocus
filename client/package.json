@@ -23,7 +23,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
-    "@babel/plugin-transform-private-property-in-object": "^7.23.3"
+    "@babel/plugin-transform-private-property-in-object": "^7.23.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40"
   },
   "scripts": {
     "react-start": "react-scripts start",

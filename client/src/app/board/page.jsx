@@ -3,5 +3,12 @@ export const metadata = {
 }
 
 export default function Page() {
-    return <h1>Hello, Board Page!</h1>
+    return (
+        <div>
+            <div className="flex place-content-between">
+                <h1>BOARD NAME</h1>
+                <button>OPTIONS</button>
+            </div>
+        </div>
+    );
 }

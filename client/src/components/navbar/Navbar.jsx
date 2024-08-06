@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navbar() {
     return (
         <nav className="flex place-content-between bg-zinc-300">
@@ -13,7 +15,7 @@ export default function Navbar() {
                         <button className="bg-black text-white">Stared</button>
                     </li>
                     <li>
-                        <button className="bg-black text-white">Calendar</button>
+                        <Link href="/calendar">Calendar</Link>
                     </li>
                 </ul>
             </div>
