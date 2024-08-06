@@ -545,6 +545,18 @@ video {
   --tw-contain-style:  ;
 }
 
+.bg-primary-blue-1 {
+  background-color: #DBEEF3;
+}
+
+.bg-primary-blue-2 {
+  background-color: #118AB2;
+}
+
+.text-off-white {
+  color: #FAF9F6;
+}
+
 .static {
   position: static;
 }
