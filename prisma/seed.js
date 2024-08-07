@@ -1,0 +1,20 @@
+// const { PrismaClient } = require("@prisma/client");
+// const prisma = new PrismaClient();
+
+import prisma from "./client";
+
+async function main() {
+    await prisma.boards.create({
+        data: { board_name: 'Test-Board' },
+    });
+}
+
+main()
+    .then(async () => {
+        await prisma.$disconnect();
+    })
+    .catch(async (e) => {
+        console.error(e);
+        await prisma.$disconnect();
+        process.exit(1);
+    });
