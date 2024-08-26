@@ -1,6 +1,6 @@
-import prisma from "../../../prisma/client";
+import prisma from "../../../../prisma/client";
 
-export default async function Home() {
+export default async function Boards() {
     const boards = await prisma.boards.findMany();
 
     return (

@@ -17,3 +17,12 @@ model Boards {
   id         Int    @id @default(autoincrement())
   board_name String @db.VarChar(250)
 }
+
+model Users {
+  id        Int      @id @default(autoincrement())
+  auth0id   String   @unique
+  email     String   @unique
+  f_name    String
+  l_name    String
+  createdAt DateTime @default(now())
+}
