@@ -1,8 +1,29 @@
-import prisma from "./client";
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 
 async function main() {
-    await prisma.boards.create({
-        data: { board_name: 'Test-Board' },
+    const board = await prisma.boards.create({
+        data: {
+            boardName: 'Test-Board-1'
+        }
+    });
+
+    const list = await prisma.lists.create({
+        data: {
+            listName: 'List-Name-1',
+            board: {
+                connect: { id: board.id },
+            },
+        }
+    });
+
+    await prisma.cards.create({
+        data: {
+            cardName: 'Card-Name-1',
+            list: {
+                connect: { id: list.id },
+            }
+        }
     });
 }
 

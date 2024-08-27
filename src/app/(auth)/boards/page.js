@@ -1,8 +1,10 @@
 import List from "@/components/board-list/list";
+import NewListButton from "@/components/board-list/new-list-button";
+
 import prisma from "../../../../prisma/client";
 
 export default async function Boards() {
-    const boards = await prisma.boards.findMany();
+    // const boards = await prisma.boards.findMany();
 
     return (
         // <div>
@@ -15,6 +17,7 @@ export default async function Boards() {
         // </div>
         <div className="flex">
             <List />
+            <NewListButton />
         </div>
     );
 }
