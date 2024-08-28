@@ -1,8 +1,8 @@
 import Board from "@/components/boards/board"
 
-async function getBoardData() {
+async function getBoardData(boardId) {
     try {
-        const response = await fetch('http://localhost:3000/api/boards', { cache: 'no-store' });
+        const response = await fetch(`http://localhost:3000/api/boards/${boardId}`, { cache: 'no-store' });
 
         if (!response.ok) {
             throw new Error("Couldn't fetch boards, try again");
@@ -18,8 +18,10 @@ async function getBoardData() {
     }
 }
 
-export default async function Boards() {
-    let boardData = await getBoardData();
+export default async function BoardIdPage({ params }) {
+    const boardId = params.id;
+
+    let boardData = await getBoardData(boardId);
 
     return (
         <>

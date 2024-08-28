@@ -1,10 +1,12 @@
-import prisma from "../../../../../prisma/client";
+import prisma from "../../../../../../prisma/client";
 
-export async function GET(req) {
+export async function GET(_req, { params }) {
+    const boardId = params.id;
+
     try {
         const board = await prisma.boards.findUnique({
             where: {
-                id: 4
+                id: Number(boardId)
             },
             include: {
                 lists: {

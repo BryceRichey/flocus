@@ -1,6 +1,12 @@
 import List from "@/components/lists/list";
 
 export default function Board({ board }) {
+    if (board === null) {
+        return (
+            <p>Hmm.... No boards with that ID! </p>
+        )
+    }
+
     return (
         <>
             <div>
