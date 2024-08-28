@@ -24,22 +24,22 @@ model Users {
 
 // NEED TO ADD USER ID CONNECTION WITH BOARDS ETC.
 model Boards {
-  id    Int     @id @default(autoincrement())
-  boardName  String  @db.VarChar(250)
-  lists Lists[]
+  id        Int     @id @default(autoincrement())
+  boardName String  @db.VarChar(250)
+  lists     Lists[]
 }
 
 model Lists {
   id       Int     @id @default(autoincrement())
-  listName     String
+  listName String
   board    Boards  @relation(fields: [boards], references: [id])
-  boards Int
+  boards   Int
   cards    Cards[]
 }
 
 model Cards {
-  id      Int    @id @default(autoincrement())
-  cardName    String
-  list   Lists  @relation(fields: [listsId], references: [id])
-  listsId Int
+  id       Int    @id @default(autoincrement())
+  cardName String
+  list     Lists  @relation(fields: [listsId], references: [id])
+  listsId  Int
 }

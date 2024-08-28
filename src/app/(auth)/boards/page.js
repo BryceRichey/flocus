@@ -1,23 +1,29 @@
-import List from "@/components/board-list/list";
-import NewListButton from "@/components/board-list/new-list-button";
+import Board from "@/components/boards/board"
 
-import prisma from "../../../../prisma/client";
+async function getBoardData() {
+    try {
+        const response = await fetch('http://localhost:3000/api/boards', { cache: 'no-store' });
+
+        if (!response.ok) {
+            throw new Error("Couldn't fetch boards, try again");
+        }
+
+        const board = await response.json();
+
+        return <Board board={board} />;
+    } catch (error) {
+        console.error('Error fetching board:', error);
+
+        return <p>Error loading board data</p>;
+    }
+}
 
 export default async function Boards() {
-    // const boards = await prisma.boards.findMany();
+    let boardData = await getBoardData();
 
     return (
-        // <div>
-        //     <h1>Users</h1>
-        //     <ul>
-        //         {boards.map((board) => (
-        //             <li key={board.id}>{board.board_name}</li>
-        //         ))}
-        //     </ul>
-        // </div>
-        <div className="flex">
-            <List />
-            <NewListButton />
-        </div>
+        <>
+            {boardData}
+        </>
     );
 }
