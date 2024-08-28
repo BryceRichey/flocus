@@ -8,9 +8,9 @@ export default function Board({ board }) {
     }
 
     return (
-        <>
+        <main className="px-8 pt-4">
             <div>
-                <h1>{board.boardName}</h1>
+                <h1 className="text-xl">{board.boardName}</h1>
             </div>
             <br />
             <div className="flex">
@@ -21,6 +21,6 @@ export default function Board({ board }) {
                     </ div>
                 ))}
             </div>
-        </>
+        </main >
     );
 }
