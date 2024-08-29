@@ -1,13 +1,15 @@
 import Card from "../cards/card"
+import Footer from "./footer";
 
 export default function List({ listCards }) {
     return (
-        <div className="flex flex-col">
-            {listCards.map((card) => (
-                <>
+        <>
+            <ul className="flex flex-col">
+                {listCards.map((card) => (
                     <Card key={card.id} card={card} />
-                </>
-            ))}
-        </div>
+                ))}
+            </ul>
+            <Footer />
+        </>
     );
 }
