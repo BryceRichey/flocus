@@ -19,7 +19,7 @@ export default function Board({ board }) {
                     {board.lists.map((list) => (
                         <li key={list.id} className="rounded bg-stone-400 mx-2 p-4">
                             <h2 className="mb-4 text-white">{list.listName}</h2>
-                            <List listCards={list.cards} />
+                            <List listCards={list.cards} listId={list.id} />
                         </li>
                     ))}
                 </ol>

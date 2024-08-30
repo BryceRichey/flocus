@@ -3,7 +3,7 @@
 import { useFormState } from 'react-dom';
 import { createList } from '@/actions/lists/list-actions';
 
-export default async function NewListForm({ boardId }) {
+export default function NewListForm({ boardId }) {
     const initialState = {
         listName: '',
         boardId: boardId,

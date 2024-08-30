@@ -1,7 +1,7 @@
 import Card from "../cards/card"
 import Footer from "./footer";
 
-export default function List({ listCards }) {
+export default function List({ listId, listCards }) {
     return (
         <>
             <ul className="flex flex-col">
@@ -9,7 +9,7 @@ export default function List({ listCards }) {
                     <Card key={card.id} card={card} />
                 ))}
             </ul>
-            <Footer />
+            <Footer listId={listId} />
         </>
     );
 }

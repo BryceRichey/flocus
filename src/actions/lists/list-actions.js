@@ -22,3 +22,21 @@ export async function createList(_prevState, formData) {
         console.log('Error Adding List');
     }
 }
+
+export async function deleteList(_prevState, formData) {
+    const rawFormData = {
+        listId: formData.get('listId'),
+    }
+
+    try {
+        await prisma.lists.delete({
+            where: {
+                id: Number(rawFormData.listId),
+            }
+        });
+
+        revalidatePath('/boards');
+    } catch (error) {
+        console.log('Error Deleting List');
+    }
+}
