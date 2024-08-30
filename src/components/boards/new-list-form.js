@@ -9,8 +9,6 @@ export default function NewListForm({ boardId }) {
         boardId: boardId,
     }
 
-    console.log(boardId);
-
     const [state, formAction] = useFormState(createList, initialState);
 
     return (

@@ -20,7 +20,6 @@ async function getAllBoards() {
 
 export default async function BoardsPage() {
     const boardsData = await getAllBoards();
-    console.log(boardsData);
 
     return (
         <main className="px-8 pt-4">
