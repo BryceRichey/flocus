@@ -23,7 +23,7 @@ export default function Board({ board }) {
                         </li>
                     ))}
                 </ol>
-                <NewListForm />
+                <NewListForm boardId={board.id} />
             </div>
         </main >
     );
