@@ -1,5 +1,5 @@
 import Link from "next/link";
-import DeleteListForm from "../boards/delete-list-form";
+import DeleteListForm from "./delete-list-form";
 import NewCardButton from "../cards/new-card-button";
 
 export default function Footer({ boardId, listId }) {
