@@ -7,7 +7,7 @@ export default function Footer({ boardId, listId }) {
         <div className="flex flex-col">
             <NewCardButton />
             <Link href={`/boards/${boardId}/${listId}`} className="bg-stone-600 text-white rounded px-2 py-1">Edit Card</Link>
-            <DeleteListForm listId={listId} />
+            <DeleteListForm boardId={boardId} listId={listId} />
         </div>
     )
 }

@@ -18,10 +18,11 @@ export async function createList(_prevState, formData) {
             }
         });
 
-        revalidatePath(`/boards`);
     } catch (error) {
         console.log('Error Adding List');
     }
+
+    revalidatePath(`/boards/${parseInt(rawFormData.boardId)}`);
 }
 
 export async function updateList(_prevState, formData) {
@@ -51,6 +52,7 @@ export async function updateList(_prevState, formData) {
 
 export async function deleteList(_prevState, formData) {
     const rawFormData = {
+        boardId: formData.get('boardId'),
         listId: formData.get('listId'),
     }
 
@@ -61,8 +63,9 @@ export async function deleteList(_prevState, formData) {
             }
         });
 
-        revalidatePath('/boards');
     } catch (error) {
         console.log('Error Deleting List');
     }
+
+    revalidatePath(`/boards/${parseInt(rawFormData.boardId)}`);
 }

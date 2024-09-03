@@ -6,7 +6,7 @@ import { createList } from '@/actions/lists/list-actions';
 export default function NewListForm({ boardId }) {
     const initialState = {
         listName: '',
-        boardId: boardId,
+        boardId,
     }
 
     const [state, formAction] = useFormState(createList, initialState);
