@@ -17,7 +17,7 @@ export default function Board({ board }) {
             <div className="flex">
                 <ol className="flex">
                     {board.lists.map((list) => (
-                        <li key={list.id} className="rounded bg-stone-400 mx-2 p-4">
+                        <li key={list.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 p-4">
                             <h2 className="mb-4 text-white">{list.listName}</h2>
                             <List boardId={board.id} listCards={list.cards} listId={list.id} />
                         </li>
