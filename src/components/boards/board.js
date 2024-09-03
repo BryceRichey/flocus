@@ -1,5 +1,5 @@
 import List from "@/components/lists/list";
-import NewListForm from "./new-list-form";
+import NewListForm from "../lists/new-list-form";
 
 export default function Board({ board }) {
     if (board === null) {
