@@ -1,3 +1,4 @@
+import NewBoardForm from "@/components/boards/new-list-form";
 import Link from "next/link";
 
 async function getAllBoards() {
@@ -26,7 +27,7 @@ export default async function BoardsPage() {
             <div>
                 <h1 className="text-xl">Board Page</h1>
                 <br />
-                <div>
+                <div className="flex">
                     <ul>
                         {boardsData.map((board) => (
                             <li key={board.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 mb-2 p-4">
@@ -36,6 +37,7 @@ export default async function BoardsPage() {
                             </li>
                         ))}
                     </ul>
+                    <NewBoardForm />
                 </div>
             </div>
 
