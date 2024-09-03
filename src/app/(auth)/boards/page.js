@@ -25,16 +25,18 @@ export default async function BoardsPage() {
         <main className="px-8 pt-4">
             <div>
                 <h1 className="text-xl">Board Page</h1>
-                <ul>
-                    {boardsData.map((board) => (
-                        <li key={board.id}>
-                            <Link href={`/boards/${board.id}`}>
-                                {board.boardName}
-                            </Link>
-                        </li>
-
-                    ))}
-                </ul>
+                <br />
+                <div>
+                    <ul>
+                        {boardsData.map((board) => (
+                            <li key={board.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 mb-2 p-4">
+                                <Link href={`/boards/${board.id}`} className="text-white">
+                                    {board.boardName}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
 
         </main>
