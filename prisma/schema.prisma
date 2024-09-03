@@ -32,14 +32,14 @@ model Boards {
 model Lists {
   id       Int     @id @default(autoincrement())
   listName String
-  board    Boards  @relation(fields: [boards], references: [id])
-  boards   Int
+  board    Boards  @relation(fields: [boardsId], references: [id], onDelete: Cascade)
+  boardsId   Int
   cards    Cards[]
 }
 
 model Cards {
   id       Int    @id @default(autoincrement())
   cardName String
-  list     Lists  @relation(fields: [listsId], references: [id])
+  list     Lists  @relation(fields: [listsId], references: [id], onDelete: Cascade)
   listsId  Int
 }

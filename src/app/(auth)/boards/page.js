@@ -1,3 +1,4 @@
+import DeleteBoardForm from "@/components/boards/delete-board-form";
 import NewBoardForm from "@/components/boards/new-board-form";
 import Link from "next/link";
 
@@ -34,6 +35,7 @@ export default async function BoardsPage() {
                                 <Link href={`/boards/${board.id}`} className="text-white">
                                     {board.boardName}
                                 </Link>
+                                <DeleteBoardForm boardId={board.id} />
                             </li>
                         ))}
                     </ul>

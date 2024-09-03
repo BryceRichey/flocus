@@ -21,3 +21,24 @@ export async function createBoard(_prevState, formData) {
 
     revalidatePath('/boards');
 }
+
+export async function deleteBoard(_prevState, formData) {
+    const rawFormData = {
+        boardId: formData.get('boardId'),
+    }
+
+    console.log(rawFormData.boardId)
+
+    try {
+        await prisma.boards.delete({
+            where: {
+                id: Number(rawFormData.boardId),
+            }
+        });
+
+    } catch (error) {
+        console.log('Error Deleting Board');
+    }
+
+    revalidatePath('/boards');
+}
