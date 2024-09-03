@@ -1,4 +1,4 @@
-import NewBoardForm from "@/components/boards/new-list-form";
+import NewBoardForm from "@/components/boards/new-board-form";
 import Link from "next/link";
 
 async function getAllBoards() {
