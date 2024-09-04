@@ -24,3 +24,23 @@ export async function createCard(_prevState, formData) {
 
     revalidatePath(`/boards/${parseInt(rawFormData.boardId)}`);
 }
+
+export async function deleteCard(_prevState, formData) {
+    const rawFormData = {
+        boardId: formData.get('boardId'),
+        cardId: formData.get('cardId'),
+    }
+
+    try {
+        await prisma.cards.delete({
+            where: {
+                id: Number(rawFormData.cardId),
+            }
+        });
+
+    } catch (error) {
+        console.log('Error Deleting Card');
+    }
+
+    revalidatePath(`/boards/${parseInt(rawFormData.boardId)}`);
+}

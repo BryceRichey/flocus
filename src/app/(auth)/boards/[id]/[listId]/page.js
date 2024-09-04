@@ -22,6 +22,8 @@ export default async function ListIdPage({ params }) {
     const listId = params.listId;
     const listData = await getList(boardId, listId);
 
+    console.log(listData)
+
     return (
         <main className="px-8 pt-4">
             <EditListForm boardId={boardId} listData={listData} />
