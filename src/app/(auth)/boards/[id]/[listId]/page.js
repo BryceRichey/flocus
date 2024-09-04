@@ -1,4 +1,5 @@
 import EditListForm from "@/components/lists/edit-list-form";
+import Card from "@/components/cards/card";
 
 async function getList(boardId, listId) {
     try {
@@ -22,6 +23,15 @@ export default async function ListIdPage({ params }) {
     const listData = await getList(boardId, listId);
 
     return (
-        <EditListForm boardId={boardId} listData={listData} />
+        <main className="px-8 pt-4">
+            <EditListForm boardId={boardId} listData={listData} />
+            <div>
+                <ul className="flex flex-col">
+                    {listData.cards.map((card) => (
+                        <Card key={card.id} card={card} />
+                    ))}
+                </ul>
+            </div>
+        </main>
     );
 }
