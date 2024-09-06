@@ -32,7 +32,7 @@ export default async function BoardsPage() {
                     <ul>
                         {boardsData.map((board) => (
                             <li key={board.id} className="flex flex-col justify-between rounded-lg bg-stone-400 hover:bg-stone-500 mx-2 mb-2 w-40 h-24">
-                                <Link href={`/boards/${board.id}`} className="text-white p-4">
+                                <Link href={`/boards/${board.id}`} className="text-white p-4 h-full">
                                     {board.boardName}
                                 </Link>
                             </li>
