@@ -26,16 +26,15 @@ export default async function BoardsPage() {
     return (
         <main className="px-8 pt-4">
             <div>
-                <h1 className="text-xl">Board Page</h1>
+                <h1 className="text-xl">Your Boards</h1>
                 <br />
                 <div className="flex">
                     <ul>
                         {boardsData.map((board) => (
-                            <li key={board.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 mb-2 p-4">
-                                <Link href={`/boards/${board.id}`} className="text-white">
+                            <li key={board.id} className="flex flex-col justify-between rounded-lg bg-stone-400 hover:bg-stone-500 mx-2 mb-2 w-40 h-24">
+                                <Link href={`/boards/${board.id}`} className="text-white p-4">
                                     {board.boardName}
                                 </Link>
-                                <DeleteBoardForm boardId={board.id} />
                             </li>
                         ))}
                     </ul>

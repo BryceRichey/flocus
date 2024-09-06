@@ -1,5 +1,6 @@
 import List from "@/components/lists/list";
 import NewListForm from "../lists/new-list-form";
+import DeleteBoardForm from "./delete-board-form";
 
 export default function Board({ board }) {
     if (board === null) {
@@ -24,6 +25,7 @@ export default function Board({ board }) {
                     ))}
                 </ol>
                 <NewListForm boardId={board.id} />
+                <DeleteBoardForm boardId={board.id} />
             </div>
         </main >
     );
