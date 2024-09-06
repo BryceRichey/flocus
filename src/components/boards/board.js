@@ -1,6 +1,7 @@
 import List from "@/components/lists/list";
 import NewListForm from "../lists/new-list-form";
 import DeleteBoardForm from "./delete-board-form";
+import ListOptionsButton from "../lists/list-options-button";
 
 export default function Board({ board }) {
     if (board === null) {
@@ -19,7 +20,10 @@ export default function Board({ board }) {
                 <ol className="flex">
                     {board.lists.map((list) => (
                         <li key={list.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 p-4">
-                            <h2 className="mb-4 text-white">{list.listName}</h2>
+                            <div className="flex justify-between">
+                                <h2 className="mb-4 text-white">{list.listName}</h2>
+                                <ListOptionsButton boardId={board.id} listId={list.id} />
+                            </div>
                             <List boardId={board.id} listCards={list.cards} listId={list.id} />
                         </li>
                     ))}
