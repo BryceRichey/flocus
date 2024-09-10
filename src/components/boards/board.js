@@ -20,7 +20,7 @@ export default function Board({ board }) {
             <div className="flex px-8 pt-4 overflow-x-auto">
                 <ol className="flex">
                     {board.lists.map((list) => (
-                        <List key={list.id} boardId={board.id} list={list} cards={list.cards} />
+                        <List key={list.id} boardId={board.id} list={list}/>
                     ))}
                 </ol>
                 <NewListForm boardId={board.id} />
