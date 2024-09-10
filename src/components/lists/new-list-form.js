@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useFormState } from 'react-dom';
 import { createList } from '@/actions/lists/list-actions';
+import Button from '../buttons/button';
 
 export default function NewListForm({ boardId }) {
     const initialState = {
@@ -35,8 +36,8 @@ export default function NewListForm({ boardId }) {
                     <label className='text-white'>List Name</label>
                     <input type="text" name="listName" className='rounded-lg mb-2' />
                     <div className='flex justify-between'>
-                        <button type='button' className="bg-stone-600 text-white rounded-lg px-2 py-1" onClick={handleClick}>Cancel</button>
-                        <button type="submit" className="bg-stone-600 text-white rounded-lg px-2 py-1">Create</button>
+                        <Button buttonType="button" buttonStyle="ghost" buttonLabel="Cancel" onClickFn={handleClick} />
+                        <Button buttonType="submit" buttonStyle="fill" buttonLabel="Create" />
                     </div>
                 </form>
             </section>

@@ -3,6 +3,7 @@ import NewListForm from "../lists/new-list-form";
 import DeleteBoardForm from "./delete-board-form";
 import ListOptionsButton from "../lists/list-options-button";
 import BoardSettingsButton from "./board-settings-button";
+import Buttons from "../buttons/button";
 
 export default function Board({ board }) {
     if (board === null) {
@@ -30,6 +31,9 @@ export default function Board({ board }) {
                         </li>
                     ))}
                 </ol>
+                <div>
+                    {/* <Buttons /> */}
+                </div>
                 <NewListForm boardId={board.id} />
                 <DeleteBoardForm boardId={board.id} />
             </div>
