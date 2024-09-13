@@ -24,7 +24,7 @@ export default async function BoardsPage() {
     const boardsData = await getAllBoards();
 
     return (
-        <main className="px-8 pt-4">
+        <main className="h-full border-8 px-8 pt-4">
             <div>
                 <h1 className="text-xl">Your Boards</h1>
                 <br />

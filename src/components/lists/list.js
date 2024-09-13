@@ -5,7 +5,7 @@ import Footer from "./footer";
 
 export default function List({ boardId, list }) {
     return (
-        <li key={list.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 p-4">
+        <li key={list.id} className="flex flex-col justify-between rounded bg-stone-400 mx-2 p-4 h-fit">
             <div className="flex justify-between">
                 <h2 className="mb-4 text-white">{list.listName}</h2>
                 <ListOptionsButton boardId={boardId} listId={list.id} />

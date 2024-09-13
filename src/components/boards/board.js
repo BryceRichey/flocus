@@ -11,13 +11,13 @@ export default function Board({ board }) {
     }
 
     return (
-        <main>
+        <main className="h-full flex flex-col">
             <div className="flex justify-between bg-stone-200 px-8 py-4">
                 <h1 className="text-xl">{board.boardName}</h1>
                 <BoardSettingsButton />
             </div>
             <br />
-            <div className="flex px-8 pt-4 overflow-x-auto">
+            <div className="flex flex-grow px-8 pt-4 overflow-x-auto">
                 <ol className="flex">
                     {board.lists.map((list) => (
                         <List key={list.id} boardId={board.id} list={list}/>
