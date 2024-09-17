@@ -17,11 +17,11 @@ export default function ListOptionsButton({ boardId, listId }) {
     return (
         <>
             <div>
-                <button type="button" className="bg-stone-600 hover:bg-stone-500 text-white text-xs rounded-lg h-" onClick={handleClick}>
+                <button type="button" className="bg-cyan-950 hover:bg-cyan-900 text-white text-xs rounded-lg h-" onClick={handleClick}>
                     <MoreIcon />
                 </button>
-                <section className={`${showForm ? '' : 'hidden'} absolute  bg-stone-500 p-5`}>
-                    <Link href={`/boards/${boardId}/${listId}`} className="bg-stone-600 text-white rounded px-2 py-1 me-2">Edit List</Link>
+                <section className={`${showForm ? '' : 'hidden'} absolute  bg-cyan-950 p-5 rounded-lg`}>
+                    <Link href={`/boards/${boardId}/${listId}`} className="font-medium text-base px-3 py-2 rounded-lg w-max text-white/95 hover:text-white hover:bg-cyan-900/20">Edit List</Link>
                     <DeleteListForm boardId={boardId} listId={listId} />
                 </section>
             </div>

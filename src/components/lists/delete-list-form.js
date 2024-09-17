@@ -2,6 +2,7 @@
 
 import { useFormState } from 'react-dom';
 import { deleteList } from '@/actions/lists/list-actions';
+import Button from '../buttons/button';
 
 export default function DeleteListForm({ boardId, listId }) {
     const initialState = {
@@ -16,7 +17,7 @@ export default function DeleteListForm({ boardId, listId }) {
             <form action={formAction}>
                 <input type="hidden" name="boardId" value={boardId} />
                 <input type="hidden" name="listId" value={listId} />
-                <button type="submit" className="bg-stone-600 text-white rounded px-2 py-1">Delete List</button>
+                <Button buttonType="submit" buttonLabel="Delete List" buttonStyle="ghost" />
             </form>
         </div>
     );
