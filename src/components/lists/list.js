@@ -1,6 +1,6 @@
 import Card from "../cards/card"
 import ListOptionsButton from "../lists/list-options-button";
-import DeleteCardForm from "../cards/delete-list-form";
+import DeleteCardForm from "../cards/delete-card-form";
 import Footer from "./footer";
 
 export default function List({ boardId, list }) {
@@ -12,10 +12,7 @@ export default function List({ boardId, list }) {
             </div>
             <ul className="flex flex-col">
                 {list.cards.map((card) => (
-                    <div key={card.id} className="flex">
-                        <Card key={card.id} card={card} />
-                        <DeleteCardForm boardId={boardId} cardId={card.id} />
-                    </div>
+                    <Card key={card.id} boardId={boardId} listId={list.id} card={card} />
                 ))}
             </ul>
             <Footer boardId={boardId} listId={list.id} />
