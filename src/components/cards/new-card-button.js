@@ -1,9 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 import { createCard } from "@/actions/cards/card-actions"
 import Button from '../buttons/button';
+
+function SubmitButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <Button buttonType="submit" buttonStyle="fill" buttonLabel={pending ? "Creating..." : "Create"} />
+    );
+}
 
 export default function NewCardForm({ boardId, listId }) {
     const initialState = {
@@ -26,7 +34,7 @@ export default function NewCardForm({ boardId, listId }) {
     if (!showForm) {
         content = (
             <div>
-                <Button buttonType="button" buttonStyle="ghost" buttonLabel="Add a card" onClickFn={handleClick} iconLeft="+"/>
+                <Button buttonType="button" buttonStyle="ghost" buttonLabel="Add a card" onClickFn={handleClick} iconLeft="+" />
             </div>
         );
     } else {
@@ -37,8 +45,8 @@ export default function NewCardForm({ boardId, listId }) {
                     <input type="hidden" name="listId" value={listId} />
                     <input type="text" name="cardName" className='rounded-lg mb-2 p-2' placeholder='Enter a name for this card' />
                     <div className='flex'>
+                        <SubmitButton />
                         <Button buttonType="button" buttonStyle="ghost" buttonLabel="Cancel" onClickFn={handleClick} />
-                        <Button buttonType="submit" buttonStyle="fill" buttonLabel="Create" />
                     </div>
                 </form>
             </section>

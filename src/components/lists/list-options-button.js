@@ -17,7 +17,7 @@ export default function ListOptionsButton({ boardId, listId }) {
     return (
         <>
             <div>
-                <button type="button" className="bg-cyan-950 hover:bg-cyan-900 text-white text-xs rounded-lg h-" onClick={handleClick}>
+                <button type="button" className="bg-cyan-950 hover:bg-cyan-900 text-white text-xs rounded-lg" onClick={handleClick}>
                     <MoreIcon />
                 </button>
                 <section className={`${showForm ? '' : 'hidden'} absolute  bg-cyan-950 p-5 rounded-lg`}>

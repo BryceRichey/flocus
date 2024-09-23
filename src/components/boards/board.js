@@ -12,8 +12,8 @@ export default function Board({ board }) {
 
     return (
         <main className="h-full flex flex-col">
-            <div className="flex justify-between bg-stone-200 px-8 py-4">
-                <h1 className="text-xl">{board.boardName}</h1>
+            <div className="flex justify-between bg-cyan-600/15 px-8 pb-4">
+                <h1 className="text-xl pt-4">{board.boardName}</h1>
                 <BoardSettingsButton />
             </div>
             <br />
